@@ -1,7 +1,7 @@
 AromatiqJS - plugin pattern
 ==========
 
-This pattern allow to you provide a vanillaJS plugin that will be available in vanillaJS, jQuery & AMD.
+This pattern allow to you provide a vanillaJS plugin that will be also available in jQuery or AMD context.
 
 How to use this kind of plugin
 -------------
@@ -31,6 +31,16 @@ How to use this kind of plugin
 ```js
 require(['myPlugin'], function(myPlugin){
   myPlugin(document.querySelectorAll('.widgetClass'), argument1, etc);
+});
+```
+
+### AMD + jQuery
+
+Warning: If you use AMD and jQuery, the plugin will not extends jQuery
+
+```js
+require(['jquery', 'myPlugin'], function($, myPlugin){
+  myPlugin($('.widgetClass'), argument1, etc);
 });
 ```
 
