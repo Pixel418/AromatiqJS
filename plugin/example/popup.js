@@ -1,28 +1,5 @@
-;(function (root, factory) {
-  function wrapper(elements) {
-    if (!elements) {
-      elements = [];
-    } else if (elements.nodeType) {
-      elements = [elements];
-    }
-    var options = Array.prototype.slice.call(arguments, 1);
-    return plugin.apply(root, [elements].concat(options));
-  }
-  var plugin = factory();
-  if (typeof define === 'function' && define.amd) {
-    define(function(){
-      return wrapper;
-    });
-  } else {
-    if (root.jQuery) {
-      root.jQuery.fn[plugin.name]= function(){
-        return plugin.apply(root, [this.toArray()].concat(arguments));
-      }
-    } else {
-      root[plugin.name] = wrapper
-    }
-  }
-})(this, function() {
+(function(e,t){var r=t();function n(t){if(!t){t=[]}else if(t.nodeType){t=[t]}var n=Array.prototype.slice.call(arguments,1);return r.apply(e,[t].concat(n))}if(typeof define==="function"&&define.amd){define(function(){return n})}else{if(e.jQuery){e.jQuery.fn[r.name]=function(){return r.apply(e,[this.toArray()].concat(arguments))}}else{e[r.name]=n}}})
+(this,function(){
   var addEventListener = "addEventListener" in window
     , eventListener = addEventListener ? "addEventListener" : "attachEvent"
     , prefix = addEventListener ? "" : "on"
