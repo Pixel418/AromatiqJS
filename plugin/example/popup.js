@@ -1,4 +1,4 @@
-(function(e,t){var r=t();function n(t){if(!t){t=[]}else if(t.nodeType){t=[t]}var n=Array.prototype.slice.call(arguments,1);return r.apply(e,[t].concat(n))}if(typeof define==="function"&&define.amd){define(function(){return n})}else{if(e.jQuery){e.jQuery.fn[r.name]=function(){return r.apply(e,[this.toArray()].concat(arguments))}}else{e[r.name]=n}}})
+(function(e,t){function r(t){if(!t){t=[]}else if(t.nodeType){t=[t]}else if(!t.length){t=[]}var r=Array.prototype.slice.call(arguments,1);return n.apply(e,[t].concat(r))}var n=t();if(typeof define==="function"&&define.amd){define(function(){return r})}else{var i=e.jQuery||e.jTropiq;if(i){i.fn[n.name]=function(){return n.apply(e,[this.toArray()].concat(arguments))}}else{e[n.name]=r}}})
 (this,function(){
   var addEventListener = "addEventListener" in window
     , eventListener = addEventListener ? "addEventListener" : "attachEvent"
@@ -6,6 +6,7 @@
     , clickEvent = "createTouch" in document ? "touchend" : "click"
 
   return function popup(elements, width, height) {
+    console.log(elements);
     var length = elements.length;
     for(;length--;) {
       (function(item){

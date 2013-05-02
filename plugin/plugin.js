@@ -8,6 +8,8 @@
       elements = [];
     } else if (elements.nodeType) {
       elements = [elements];
+    } else if (!elements.length) {
+      elements = [];
     }
     var options = Array.prototype.slice.call(arguments, 1);
     return plugin.apply(root, [elements].concat(options));
@@ -21,10 +23,11 @@
     });
   } else {
 
-    // If it is a jQuery context
+    // If it is a jQuery / jTropiq context
     // The plugin will be accessible this way $(selector).myPlugin()
-    if (root.jQuery) {
-      root.jQuery.fn[plugin.name]= function(){
+    var $ = root.jQuery||root.jTropiq;
+    if ($) {
+      $.fn[plugin.name]= function(){
         return plugin.apply(root, [this.toArray()].concat(arguments));
       }
 
